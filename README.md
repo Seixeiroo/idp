@@ -1,4 +1,3 @@
-```markdown
 # Internal Developer Platform (IDP) — GitOps PoC
 
 An internal developer platform built on **Backstage + ArgoCD + Crossplane**, providing self-service environment provisioning, a service catalog, and governance guardrails — all driven by GitOps.
