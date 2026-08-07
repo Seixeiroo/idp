@@ -1,0 +1,8 @@
+# Poc/kubernetes/gateway/kind-poc/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - envoyproxy.yaml
+  - cert-manager-clusterissuer.yaml
+  - gatewayclass.yaml
+  - gateway.yaml

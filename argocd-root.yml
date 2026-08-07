@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: poc-root
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Seixeiroo/idp.git
+    targetRevision: main
+    path: Poc/kubernetes
+    directory:
+      recurse: true
+      exclude: "argocd/**" # evita o ArgoCD tentar gerenciar a si mesmo/apps ainda vazios
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
