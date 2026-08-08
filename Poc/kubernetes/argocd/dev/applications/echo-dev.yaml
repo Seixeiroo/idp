@@ -1,18 +1,17 @@
+# echo-dev.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: poc-root
+  name: echo-dev
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/Seixeiroo/idp.git
     targetRevision: main
-    path: Poc/kubernetes/argocd/dev/applications
+    path: Poc/kubernetes/overlays/dev/ns-echo/echo
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: ns-echo
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    automated: { prune: true, selfHeal: true }

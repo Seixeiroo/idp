@@ -1,18 +1,17 @@
+# platform-crossplane.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: poc-root
+  name: platform-crossplane
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/Seixeiroo/idp.git
     targetRevision: main
-    path: Poc/kubernetes/argocd/dev/applications
+    path: Poc/kubernetes/base/crossplane
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: crossplane-system
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    automated: { prune: true, selfHeal: true }
